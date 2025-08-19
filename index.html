@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gokul Kannan R - UI/UX Portfolio</title>
+  <meta name="description" content="Gokul Kannan R - UI/UX Designer Portfolio">
+  <style>
+    :root {
+      --bg: #15171b;
+      --contrast: #22252b;
+      --primary: #66fcf1;
+      --accent: #45a29e;
+      --muted: #bfc0c0;
+      --highlight: #ff8c42;
+      --white: #fff;
+      --shadow: 0 6px 24px rgba(0,0,0,0.18);
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(180deg,rgba(102,252,241,0.06),rgba(0,0,0,0.21));
+      text-align: center;
+      padding: 62px 20px 44px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      color: var(--white);
+      font-weight: 700;
+    }
+    header p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1.13rem;
+    }
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding: 13px 24px;
+      background: var(--primary);
+      color: #181818;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: background .2s, color .2s;
+    }
+    .resume-btn:hover {
+      background: var(--highlight);
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 23px;
+      background: var(--contrast);
+      padding: 13px 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .nav-link {
+      color: var(--muted);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.04rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: var(--highlight);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 20px 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+      border-left: 4px solid var(--highlight);
+      padding-left: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    /* Cards & Grids */
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    .skills { grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); }
+    .education { grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+    .projects { grid-template-columns: repeat(auto-fit,minmax(270px,1fr)); }
+    .contact { grid-template-columns: 1fr; max-width: 600px; }
+    .card {
+      background: var(--contrast);
+      padding: 21px 20px 19px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: transform .23s, box-shadow .23s;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-7px) scale(1.018);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.20);
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 1.01rem;
+    }
+    /* About */
+    .about-description {
+      font-size: 1.08rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-align: left;
+    }
+    /* Skills */
+    .card.skill {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.07rem;
+      letter-spacing: .5px;
+    }
+    /* Education */
+    .card .edu-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    /* Projects */
+    .project-img {
+      width: 100%;
+      height: 158px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      background: #15171b;
+      display: block;
+    }
+    .project-title {
+      font-size: 1.19rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+    .link-label {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 9px 15px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background .2s;
+    }
+    .link-label:hover {
+      background: var(--highlight);
+    }
+    /* Contact */
+    .contact a.muted { text-decoration: underline dashed; }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 34px 0 18px 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--contrast);
+    }
+    @media (max-width: 600px) {
+      header { padding: 34px 10px 24px 10px; }
+      main { padding: 24px 7px 10px 7px; }
+      .project-img { height: 110px; }
+      .card { padding: 15px 10px 13px 10px; }
+      h2 { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gokul Kannan R</h1>
+    <a class="resume-btn" href="https://drive.google.com/file/d/1Dl7x9d0ZHbHPruHLx5r1dFMsXj_zk6k7/view?usp=sharing" target="_blank">
+      Download Resume
+    </a>
+  </header>
+  <nav>
+    <a class="nav-link" href="#about">About</a>
+    <a class="nav-link" href="#skills">Skills</a>
+    <a class="nav-link" href="#education">Education</a>
+    <a class="nav-link" href="#projects">Projects</a>
+    <a class="nav-link" href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card about-description">
+        Motivated and quick-learning UI/UX designer with a strong understanding of business principles.<br>
+        I create user-friendly and engaging digital experiences, using my technical skills and creative problem-solving to drive company growth.
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid skills">
+        <div class="card skill">UI &amp; UX Designing</div>
+        <div class="card skill">Java</div>
+        <div class="card skill">Python</div>
+        <div class="card skill">Conceptual Thinking</div>
+        <div class="card skill">Problem Solving</div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid education">
+        <div class="card">
+          <div class="edu-title">Bachelor of Education</div>
+          <p class="muted">Computer Science &amp; Design<br>
+            Erode Senguthar Engineering College<br>
+            2021 - 2025&nbsp;|&nbsp;CGPA: 7.0</p>
+        </div>
+        <div class="card">
+          <div class="edu-title">Higher Secondary</div>
+          <p class="muted">Computer Science<br>
+            Govt Hr Sec School<br>
+            2020 - 2021&nbsp;|&nbsp;76%</p>
+        </div>
+        <div class="card">
+          <div class="edu-title">Secondary Education</div>
+          <p class="muted">
+            Govt Hr Sec School<br>
+            2018 - 2019&nbsp;|&nbsp;73%
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid projects">
+        <div class="card">
+          <img class="project-img" src="https://cdn.dribbble.com/userupload/42409047/file/original-7493cf7ac1d9490942bcc504670287c6.png?resize=1200x900&vertical=center" alt="Plantix App"/>
+          <div class="project-title">Plantix Application</div>
+          <p class="muted">Mobile application for plant identification &amp; disease diagnosis with image recognition and actionable insights.</p>
+          <a class="link-label" href="https://www.behance.net/gallery/232475851/Plantix" target="_blank">View Case</a>
+        </div>
+        <div class="card">
+          <img class="project-img" src="https://cdn.dribbble.com/userupload/21021780/file/original-84d9eaaaa572bbe048a820ef28eb0c92.jpg?resize=1504x1128&vertical=center" alt="Diary App"/>
+          <div class="project-title">Diary Application</div>
+          <p class="muted">Wireframes for dairy management app: milk statistics, billing, bank integration, and feed booking.</p>
+          <a class="link-label" href="https://www.behance.net/gallery/232782845/Diary-App" target="_blank">View Case</a>
+        </div>
+        <div class="card">
+          <img class="project-img" src="https://i.pinimg.com/736x/bf/cb/b2/bfcbb2b0d8b3af4e093336465f3a073d.jpg" alt="Smart Car Parking"/>
+          <div class="project-title">Smart Car Parking System</div>
+          <p class="muted">IoT sensors detect vacant spots &amp; reduce congestion by sharing real-time updates.</p>
+          <a class="link-label" href="#" target="_blank">Prototype</a>
+        </div>
+        <div class="card">
+          <img class="project-img" src="https://i.pinimg.com/736x/40/6b/51/406b518f61d3f903a2ada09bcd2732c5.jpg" alt="Dairy Vending Machine"/>
+          <div class="project-title">Dairy Vending Machine</div>
+          <p class="muted">IoT-powered dairy machine with 24/7 monitoring, remote management, and sustainability features.</p>
+          <a class="link-label" href="#" target="_blank">Details</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="grid contact">
+        <div class="card">Email: <a class="muted" href="mailto:srgokul004@gmail.com">srgokul004@gmail.com</a></div>
+        <div class="card">Phone: <a class="muted" href="tel:+919345043409">+91 93450 43409</a></div>
+        <div class="card">Location: Erode, Tamil Nadu</div>
+        <div class="card">LinkedIn: <a class="muted" href="https://www.linkedin.com/in/gokul-kannan-r-550a3b223" target="_blank">Profile</a></div>
+        <div class="card">Behance: <a class="muted" href="https://www.behance.net/gokulr54" target="_blank">Profile</a></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Gokul Kannan
+  </footer>
+  <script>
+    // Smooth scroll and nav highlight
+    document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      const id=a.getAttribute('href');
+      document.querySelector(id).scrollIntoView({behavior:'smooth'});
+    }));
+    const sections=document.querySelectorAll('main section');
+    const navLinks=document.querySelectorAll('nav a');
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        const id=entry.target.id;
+        const link=document.querySelector('nav a[href="#'+id+'"]');
+        if(entry.isIntersecting){
+          navLinks.forEach(n=>n.classList.remove('active'));
+          if(link) link.classList.add('active');
+        }
+      });
+    },{threshold:0.5});
+    sections.forEach(s=>io.observe(s));
+  </script>
+</body>
+</html>
